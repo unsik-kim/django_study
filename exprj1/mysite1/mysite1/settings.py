@@ -55,8 +55,13 @@ ROOT_URLCONF = 'mysite1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [],   # 프로젝트 템플릿 파일 위치한 디렉토리를 지정
+        'APP_DIRS': True,  # 앱의 템플릿 디렉토리에서 파일을 찾을 것인지 여부를 지정
+                           # 디폴트값은 False 이지만 startproject 명에 의해서 setting.py 파일이 만들어질 때 True로 설정됨
+
+        # 템플릿 엔진에 따라 해당하는 옵션들을 설정하는 항목
+        # [장고 템플릿 엔진을 사용하는 경우의 옵션 항목]
+        # context_processors : 웹 요청에 들어있는 파라미터들을 인자로 받아서 컨텍스트 데이터로 사용될 dict을 만들어 주는 호출 가능한 객체 지정. 디폴트는 비어있는 리스트
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -81,9 +86,6 @@ DATABASES = {
         # 'django.db.backends.postgresql', 'django.db.backends.mysql', 또는 'django.db.backends.oracle'
     }
 }
-
-DATABASE_OPTIONS = {'charset': 'utf-8'}       # Database encoding 설정
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
