@@ -64,10 +64,10 @@ TEMPLATES = [
         # context_processors : 웹 요청에 들어있는 파라미터들을 인자로 받아서 컨텍스트 데이터로 사용될 dict을 만들어 주는 호출 가능한 객체 지정. 디폴트는 비어있는 리스트
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.debug', # 현재 실행환경의 debug 모드를 가리키는 debug 변수 및 웹 요청처리 과정에 사용된 sql 쿼리 정보들을 담은 sql_queries 변수, 2가지가 최종 컨텍스트 데이터에 추가
+                'django.template.context_processors.request', # 현재 요청의 httpRequest를 가리키는 request 변수가 최종 컨텍스트 데이터에 추가
+                'django.contrib.auth.context_processors.auth', # 로그인 사용자를 지칭하는 user 변수 및 그 사용자의 권한을 지칭하는 perms 변수가 최종 컨텍스트 데이터에 추가
+                'django.contrib.messages.context_processors.messages', # 메세지 리스트를 가리키는 messages 변수와 메세지 레벨을 가리키는 DEFAULT_MESSAGE_LEVELS 변수가 최종 컨텍스트 데이터에 추가
             ],
         },
     },
